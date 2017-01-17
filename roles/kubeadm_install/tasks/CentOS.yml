@@ -41,6 +41,13 @@
     state: latest
     update_cache: true
 
+- name:  Change docker log options
+  replace:
+    dest: /etc/sysconfig/docker
+    regexp: '--selinux-enabled --log-driver=journald'
+    replace: '--selinux-enabled'
+    backup: yes
+
 - name: Enable and start kubeadm services
   service:
     name: '{{ item }}'

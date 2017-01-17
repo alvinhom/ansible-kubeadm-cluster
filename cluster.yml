@@ -112,3 +112,10 @@
       tags:
         - master
         - remote
+
+    - name: Install dashboard add-on
+      command: kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+      register: dashboard_install
+      tags:
+        - master
+        - dashboard

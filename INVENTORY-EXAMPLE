@@ -12,29 +12,39 @@ nodes
 #
 
 [cluster:vars]
-cluster_name=kubeadm_1
+cluster_name=kube_staging
 #
 # cluster_name is used to store and retrieve the admission_token
 #
 
 [master]
-master.example.com
+sv2-dock-sand-1.onbmc.com
 #
 # The master group should have only ONE FQDN defined/specified
 #
 
 [master:vars]
+ansible_connection=ssh
+ansible_ssh_user=CHANGE_ME
+ansible_ssh_pass=CHANGE_ME
+ansible_become_pass=CHANGE_ME
 # master_ip_address_configured=1.2.3.4
 # If you need to specify a specific ip address for the master, uncomment the above and edit
 
 [nodes]
-node1.example.com
-node2.example.com
+sv2-dock-sand-2.onbmc.com
+sv2-dock-sand-3.onbmc.com
+sv2-dock-sand-4.onbmc.com
+sv2-dock-sand-5.onbmc.com
+sv2-dock-sand-6.onbmc.com
 #
 # FQDNs of hosts assigned the Kubernetes cluster node role
 #
 
 [nodes:vars]
-
+ansible_connection=ssh
+ansible_ssh_user=CHANGE_ME
+ansible_ssh_pass=CHANGE_ME
+ansible_become_pass=CHANGE_ME
 
 
