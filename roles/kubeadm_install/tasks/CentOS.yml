@@ -35,6 +35,13 @@
   command: setenforce 0
   ignore_errors: true
 
+- name:  Change SE linux config file
+  replace:
+    dest: /etc/sysconfig/selinux
+    regexp: 'SELINUX=enforcing'
+    replace: 'SELINUX=permissive'
+    backup: yes  
+    
 - name: Install kubeadm packages
   yum:
     name: '{{ kubeadm_packages | list }}'
